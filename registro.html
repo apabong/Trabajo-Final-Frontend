@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro - Almacén</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+  <style>
+   body {
+      background-color: #dff7d6; /* Fondo blanco */
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .navbar {
+      background-color: #00FF00; /* Color de fondo de la barra de navegación */
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+    .navbar-brand {
+      color: #000000!important; /* Color del texto en la barra de navegación */
+      font-family: Arial, sans-serif;
+      font-size: 24px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    .nav-link, .nav-item {
+      color: #000000!important; /* Color del texto en la barra de navegación */
+    }
+    .navbar-toggler {
+      border-color: #ffffff;
+    }
+    .container {
+      margin-top: 20px; /* Ajustando el margen superior para que el formulario quede más arriba */
+      color: #ffffff;
+      padding-top: 100px; /* Padding superior agregado para separación con la barra de navegación */
+    }
+    #registroForm {
+      max-width: 600px;
+      margin: auto;
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0px 4px 15px #0a0a0a;
+    }
+    .form-label {
+      color: #070707;
+      font-weight: bold;
+    }
+    .btn-primary {
+      background-color: #585757;
+      color:#ffffff;
+      border-color: #ffffff;
+      transition: background-color 0.3s ease;/*Esta es la duración del efecto de transición, especificada en segundos. En este caso, la transición tardará 0,3 segundos en completarse.*/
+    }
+    .form-control {
+      border-radius: 10px;
+    }
+    .modal-content {
+      background-color: #AAECDC;
+      border-radius: 15px;
+      box-shadow: 0px 4px 15px #000000;
+    }
+    h2 {
+      color: #000000;
+    }
+    .input-group-text,.input-group {
+      font-size: 1.2rem;
+      color:  #AAECDC;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-md">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">Motomax</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Página Principal</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Registro</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="inicio_sesion.html">Iniciar Sesión</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="test_drive.html">Test-Drive</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="asesoria_compra_moto.html">Asesoria</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-8">
+        <div id="registroForm" class="animate__animated animate__fadeIn">
+          <h2 class="mb-4 text-center">Registro</h2>
+          <form>
+            <div class="mb-3">
+              <label for="nombre" class="form-label">Nombre</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                <input type="text" class="form-control" id="nombre" required>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="correo" class="form-label">Correo Electrónico</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                <input type="email" class="form-control" id="correo" required>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="contrasena" class="form-label">Contraseña</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                <input type="password" class="form-control" id="contrasena" required>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Registrarse</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="registroModal" tabindex="-1" aria-labelledby="registroModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="registroModalLabel">Registro Exitoso</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ¡Te has registrado correctamente!
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById('registroForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const nombre = document.getElementById('nombre').value;
+      const correo = document.getElementById('correo').value;
+      const contrasena = document.getElementById('contrasena').value;
+
+      const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+      usuarios.push({ nombre, correo, contrasena });
+      localStorage.setItem('usuarios', JSON.stringify(usuarios));
+
+      var modal = new bootstrap.Modal(document.getElementById('registroModal'));
+      modal.show();
+    });
+  </script>
+</body>
+</html>

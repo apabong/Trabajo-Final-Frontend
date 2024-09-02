@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Almacén de Venta, Asesoría y Test Drive</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #ffffff; /* Fondo blanco */
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .navbar {
+      background-color: #00FF00; /* Color de fondo de la barra de navegación */
+    }
+    .navbar-brand {
+      color: #070707!important; /* Color del texto en la barra de navegación */
+      font-family: Arial, sans-serif;
+      font-size: 24px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    .nav-link, .nav-item {
+      color: #0e0d0d!important; /* Color del texto en la barra de navegación */
+    }
+    .navbar-toggler {
+      border-color: #00FF00;; /* Color del icono de toggle */
+    }
+    .footer {
+      background-color: #d4d0d0; /* Color de fondo del footer */
+      color: #d4d0d0; /* Color del texto del footer */
+      display: flex;
+      align-items: center; /* Alinear elementos verticalmente en el footer */
+      justify-content: flex-start; /* Alinear contenido del footer a la derecha */
+    }
+    .footer a,p,.col-md-4 {
+      background-color: #000000; /* Color de fondo del footer */
+      color: #ffffff;/* Color de los enlaces y letras en el footer */
+    }
+
+    .lead{
+      background-color: #fcfcfc; /* Color de fondo del footer */
+      color:#050505;
+      font-weight: bold;
+    }
+   
+    .carousel-img {
+      width: auto; /* Mantiene la proporción del ancho */
+      max-width: 100%; /* Asegura que las imágenes no excedan el ancho del contenedor */
+      max-height: 300px; /* Altura máxima de las imágenes */
+      object-fit: contain; /* Asegura que la imagen mantenga sus proporciones */
+      display: block;
+      margin: 0 auto; /* Centra la imagen horizontalmente */
+    }
+    .table-motos img {
+      width: 200px; /* Tamaño de las imágenes de las motos */
+      height: auto;
+      object-fit: contain;
+    }
+    .table-motos td, .mt-5 {
+      font-weight: bold; /* Aplicar negrilla a todas las celdas <td> */
+      background: #dff7d6;
+    }
+    .purchase-form-container {
+      display: none; /* Oculta el formulario de compra por defecto */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(238, 234, 234, 0.5); /* Fondo semitransparente */
+      justify-content: center;
+      align-items: center;
+    }
+    .purchase-form {
+      background-color: #aeb3b3; /* Color de fondo del formulario de compra */
+      padding: 20px; /* Espacio interno */
+      border-radius: 5px; /* Borde redondeado */
+      width: 300px; /* Ancho del formulario */
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    }
+    .purchase-form h4 {
+      margin-bottom: 15px; /* Margen inferior para el título */
+    }
+    .purchase-form label {
+      display: block;
+      margin-top: 10px; /* Margen superior para las etiquetas */
+    }
+    .purchase-form input {
+      width: 100%; /* Ancho completo para los inputs */
+      padding: 8px; /* Relleno interno */
+      margin-top: 5px; /* Margen superior */
+    }
+    .purchase-form button {
+      margin-top: 15px; /* Margen superior para los botones */
+    }
+    .btn-primary {
+      background-color: #666363; /* Color de fondo del botón primario */
+    }
+    .img-fluid{
+      width: 150px; /* Tamaño del logo de Motomax */
+      height:fit-content;
+      object-fit: contain;
+    }
+ </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">Motomax</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Página Principal</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="registro.html">Registro</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="inicio_sesion.html">Iniciar Sesión</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="test_drive.html">Test-Drive</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="asesoria_compra_moto.html">Asesoria</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-8">
+    <h1>Bienvenidos al almacen Motomax</h1>
+    <p class="lead">Ofrecemos venta de vehículos, asesoría personalizada y test drive.</p>
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000"> <!-- 2000 ms = 2 segundos -->
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="C:\Users\Acer\Documents\Trabajo Final Frontend\img\Logo-Bmw.jpeg" class="d-block w-100 carousel-img" alt="Logo 1">
+        </div>
+        <div class="carousel-item">
+          <img src="C:\Users\Acer\Documents\Trabajo Final Frontend\img\Logo-Yamaha.jpeg" class="d-block w-100 carousel-img" alt="Logo 2">
+        </div>
+        <div class="carousel-item">
+          <img src="C:\Users\Acer\Documents\Trabajo Final Frontend\img\Logo-Suzuki.jpeg" class="d-block w-100 carousel-img" alt="Logo 3">
+        </div>
+        <div class="carousel-item">
+          <img src="C:\Users\Acer\Documents\Trabajo Final Frontend\img\Logo-Ktm.jpeg" class="d-block w-100 carousel-img" alt="Logo 4">
+        </div>
+        <div class="carousel-item">
+          <img src="C:\Users\Acer\Documents\Trabajo Final Frontend\img\Logo-Kawasaki.jpeg" class="d-block w-100 carousel-img" alt="Logo 5">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  
+    <!-- Tabla de motos -->
+     
+      <div class="mt-5">
+        <h2 class="text-center">Galería de Motos</h2> <!-- Centrando el título con Bootstrap -->
+        <table class="table table-striped table-motos">
+          <thead>
+            <tr>
+              <th>Marca</th>
+              <th>Modelo</th>
+              <th>Imagen</th>
+              <th>Precio</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>BMW</td>
+              <td>S 1000 RR</td>
+              <td><img src="img/BMW S 1000 RR.jpg" alt="BMW S 1000 RR" style="width: 150px;"></td>
+              <td>$99.000.000</td>
+              <td class="text-center"><button class="btn btn-primary add-to-cart-button"><i class="bi bi-cart-plus"></i> Agregar al carrito</button></td>
+            </tr>
+            <tr>
+              <td>Yamaha</td>
+              <td>MT-03</td>
+              <td><img src="img/yamaha-mt-03.jpg" alt="Yamaha MT-03" style="width: 150px;"></td>
+              <td>$32.100.000</td>
+              <td class="text-center"><button class="btn btn-primary add-to-cart-button"><i class="bi bi-cart-plus"></i> Agregar al carrito</button></td>
+            </tr>
+            <tr>
+              <td>Suzuki</td>
+              <td>GSX-R1000</td>
+              <td><img src="img/Suzuki GSX-R1000.jpg" alt="Suzuki GSX-R1000" style="width: 150px;"></td>
+              <td>$98.900.000</td>
+              <td class="text-center"><button class="btn btn-primary add-to-cart-button"><i class="bi bi-cart-plus"></i> Agregar al carrito</button></td>
+            </tr>
+            <tr>
+              <td>KTM</td>
+              <td>RC 390</td>
+              <td><img src="img/KTM RC 390.jpg" alt="KTM RC 390" style="width: 150px;"></td>
+              <td>$27.500.000</td>
+              <td class="text-center"><button class="btn btn-primary add-to-cart-button"><i class="bi bi-cart-plus"></i> Agregar al carrito</button></td>
+            </tr>
+            <tr>
+              <td>Kawasaki</td>
+              <td>Ninja ZX-10R</td>
+              <td><img src="img/ZX-10R.jpg" alt="Kawasaki Ninja ZX-10R" style="width: 150px;"></td>
+              <td>$95.990.000</td>
+              <td class="text-center"><button class="btn btn-primary add-to-cart-button"><i class="bi bi-cart-plus"></i> Agregar al carrito</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  <!-- Formulario de compra -->
+  <div class="purchase-form-container" id="purchaseFormContainer">
+    <div class="purchase-form">
+      <h4>Formulario de Compra</h4>
+      <form id="purchaseForm">
+        <div class="mb-3">
+          <label for="buyerName" class="form-label">Nombre:</label>
+          <input type="text" id="buyerName" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="buyerEmail" class="form-label">Email:</label>
+          <input type="email" id="buyerEmail" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="buyerPhone" class="form-label">Teléfono:</label>
+          <input type="tel" id="buyerPhone" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="buyerAddress" class="form-label">Dirección:</label>
+          <input type="text" id="buyerAddress" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+        <button type="button" class="btn btn-secondary" id="cancelPurchaseButton">Cancelar</button>
+      </form>
+    </div>
+  </div>
+  <div class="mt-3">
+    <a href="#top" class="btn btn-primary"><i class="bi bi-arrow-up-square-fill" style="font-size: 1.5rem;"></i> </a>
+  </div>
+<footer class="footer bg-light py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 text-center text-md-left mb-3 mb-md-0">
+          <span>Motomax &copy; 2024. Todos los derechos reservados.</span>
+          <img src="C:\Users\Acer\Documents\Trabajo Final Frontend\img\Logo Motomax.jpeg" alt="Logo Motomax" class="img-fluid">
+        </div>
+        <div class="col-md-4 text-center mb-3 mb-md-0">
+          <h2 class="h5">Contáctenos</h2>
+          <p>Para más información, contáctenos a través de los siguientes medios:</p>
+          <p>Teléfono: 302-335-2497</p>
+          <p>Correo Electrónico: Motomax@gmail.com</p>
+        </div>
+        <div class="col-md-4 text-center text-md-left">
+          <p>Síguenos en redes sociales:</p>
+          <a href="https://www.facebook.com" target="_blank" class="d-block"><i class="bi bi-facebook"></i> Facebook</a>
+          <a href="https://www.twitter.com" target="_blank" class="d-block"><i class="bi bi-twitter"></i> Twitter</a>
+          <a href="https://www.instagram.com" target="_blank" class="d-block"><i class="bi bi-instagram"></i> Instagram</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const addToCartButtons = document.querySelectorAll('.add-to-cart-button');
+      const purchaseFormContainer = document.getElementById('purchaseFormContainer');
+      const cancelPurchaseButton = document.getElementById('cancelPurchaseButton');
+
+      addToCartButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          purchaseFormContainer.style.display = 'flex';
+        });
+      });
+
+      cancelPurchaseButton.addEventListener('click', function() {
+        purchaseFormContainer.style.display = 'none';
+      });
+
+      const purchaseForm = document.getElementById('purchaseForm');
+      purchaseForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        alert('Compra realizada con éxito');
+        purchaseFormContainer.style.display = 'none';
+      });
+    });
+  </script>
+</body>
+</html>

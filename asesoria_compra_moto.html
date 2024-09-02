@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Asesoría para Compra de Moto</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Ranchers&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #ffffff; /* Fondo blanco */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      flex-direction: column;
+      padding-top: 56px; /* Para asegurar que el contenido no se superponga con la navbar */
+    }
+
+   
+    .navbar {
+      background-color: #00FF00;; 
+      width: 100%;
+    }
+    .navbar-brand{
+      color: #000000!important; /* Color del texto en la barra de navegación */
+      font-family: Arial, sans-serif;
+      font-size: 24px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    .nav-link {
+      color: #000000!important; /* Color del texto en la barra de navegación */
+    }
+    
+    .form-card {
+      background: #AAECDC;
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 40px;
+      width: 100%;
+      max-width: 800px;
+      box-shadow: 0 0 15px #AAECDC;
+      margin-top: 20px;
+     
+    }
+    .container {
+      max-width: 600px;
+      margin-top: 20px;
+      color: #0e0c0c;
+      padding: 20px;
+      background-color: #dff7d6;
+      border-radius: 10px;
+      box-shadow: 0px 4px 15px #0a0a0a; /* Sombreado aplicado aquí */
+    }
+    .form-label {
+      color: #131212;
+      font-weight: bold;
+    }
+    .btn-primary {
+      background-color: #464545;
+    }
+    .btn-primary:hover {
+      background-color: #646262;
+    }
+    .form-control {
+      background:#ffffff;
+      border: none;
+      color: #AAECDC;
+    }
+  </style>
+</head>
+<body>
+   <!-- Header con barra de navegación -->
+   <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">Motomax</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Página Principal</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="registro.html">Registro</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="inicio_sesion.html">Iniciar Sesión</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="test_drive.html">Test-Drive</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Asesoria</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-5 pt-4">
+    <h2 class="mb-4 text-center">Formulario de Asesoría para Compra de Moto</h2>
+    <form id="formularioAsesoria">
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="nombre" required>
+      </div>
+      <div class="mb-3">
+        <label for="correo" class="form-label">Correo Electrónico</label>
+        <input type="email" class="form-control" id="correo" required>
+      </div>
+      <div class="mb-3">
+        <label for="telefono" class="form-label">Teléfono de Contacto</label>
+        <input type="tel" class="form-control" id="telefono" required>
+      </div>
+      <div class="mb-3">
+        <label for="mensaje" class="form-label">Mensaje</label>
+        <textarea class="form-control" id="mensaje" rows="4" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Enviar Consulta</button>
+    </form>
+  </div>
+
+  <!-- Modal de Confirmación -->
+  <div class="modal fade" id="modalConfirmacion" tabindex="-1" aria-labelledby="modalConfirmacionLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalConfirmacionLabel">Consulta Enviada</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ¡Tu consulta ha sido enviada correctamente!
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById('formularioAsesoria').addEventListener('submit', function(event) {
+      event.preventDefault(); // Evitar el envío del formulario por defecto
+      
+      // Aquí podrías agregar código para enviar el formulario, como enviar un correo electrónico o guardar los datos en una base de datos
+      // Por ahora, simplemente mostraremos un modal de confirmación
+      var modal = new bootstrap.Modal(document.getElementById('modalConfirmacion'));
+      modal.show();
+    });
+  </script>
+</body>
+</html>

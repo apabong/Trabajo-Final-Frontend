@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar Sesión</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(#ffffff 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 20;
+      flex-direction: column;
+      padding-top: 56px; /* Para asegurar que el contenido no se superponga con la navbar */
+    }
+    
+    .navbar {
+      background-color: #00FF00;
+      width: 100%;
+    }
+    .navbar-brand {
+      color: #0f0f0f!important; /* Color del texto en la barra de navegación */
+      font-family: Arial, sans-serif;
+      font-size: 24px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    .nav-link, .nav-item {
+      color: #030303!important; /* Color del texto en la barra de navegación */
+    }
+    .login-card {
+      margin-top: 20px;
+      background: #dff7d6;
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 60px;
+      width: 70%;
+      max-width: 400px; 
+      padding-top: 70px; /* Padding superior agregado para separación con la barra de navegación */
+      justify-content:center;
+      align-items: center;
+      box-shadow: 0px 4px 15px #0a0a0a; /* Sombreado aplicado aquí */
+    }
+    
+    .login-card h2 {
+      margin-bottom: 30px;
+      color: #464444;
+    }
+    .form-control {
+      background: #ffffff;
+      border: none;
+      color: #b6b2b2;
+    }
+    .form-control:focus {
+      background: #AAECDC;
+      box-shadow: none;
+      border-color: #ffffff;
+    }
+    .btn-primary {
+      background-color: #636262;
+      border-color: #AAECDC;
+      width: 100%;
+      color:#ffffff;
+    }
+    .btn-primary:hover {
+      background-color: #000000;
+      border-color: #AAECDC;
+    }
+    .form-check-label, .form-text, .forgot-password {
+      color: #131212;
+    }
+    .form-label {
+      color: #000000; /* Los titúlos son en negro*/
+    }
+    .forgot-password {
+      text-decoration: none;
+    }
+    .forgot-password:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header con barra de navegación -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">Motomax</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Página Principal</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="registro.html">Registro</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Iniciar Sesión</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="test_drive.html">Test-Drive</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="asesoria_compra_moto.html">Asesoria</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contenido principal de la página de inicio de sesión -->
+ 
+  <div class="login-card" >
+   
+    <h2 class="text-center">Iniciar Sesión</h2>
+    <form id="loginForm">
+      <div class="mb-4">
+        <label for="email" class="form-label">Usuario</label>
+        <input type="email" class="form-control" id="email" placeholder="Ingrese su correo" required>
+      </div>
+      <div class="mb-4">
+        <label for="password" class="form-label">Contraseña</label>
+        <input type="password" class="form-control" id="password" placeholder="Ingrese su contraseña" required>
+      </div>
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="rememberMe">
+        <label class="form-check-label" for="rememberMe">Recordar</label>
+      </div>
+      <button type="submit" class="btn btn-primary">Iniciar</button>
+      <p class="form-text mt-2 text-center">
+        <a href="#" class="forgot-password">Olvidé la contraseña</a>
+      </p>
+      <p class="form-text mt-2 text-center">
+        <a href="registro.html" class="forgot-password">No tengo una cuenta</a>
+      </p>
+    </form>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+      const usuario = usuarios.find(u => u.correo === email && u.contrasena === password);
+
+      if (usuario) {
+        alert('Inicio de sesión exitoso');
+        // Aquí se redirigi al usuario a otra página
+      } else {
+        alert('Usuario o contraseña incorrectos');
+      }
+    });
+  </script>
+</body>
+</html>
